@@ -23,7 +23,9 @@ then
 
     echo "####### Install Latest Version of Docker #######"
     sudo apt -y install docker-ce
-else
+fi
+
+
     echo "####### Docker Installed #########"
 
     echo "#### Get Dockerfile from GIT Repo ########"
@@ -31,6 +33,3 @@ else
 
     echo "##### Building Docker Image ########"
     sudo docker build -t oracle/instantclient:19 .
-fi
-test_docker_install.sh
-Displaying test_docker_install.sh.
