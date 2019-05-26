@@ -4,6 +4,9 @@ printf "*********************** MENU   **********************************\n"
 printf "*********** 1) Import  Current Customer Data ********************\n"
 printf "*********** 2) Search By Customer Account #  ********************\n"
 printf "*********** 3) Search By Customer Name  *************************\n"
+printf "*********** 4) List Saved Queries  *************************\n"
+printf "*********** 5) Exit  *************************\n"
+
 printf "*****************************************************************\n\n"
 
 read -p  "        Enter your selection:        "   menu_selection
