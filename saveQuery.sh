@@ -16,16 +16,21 @@ function saveQuery(){
     clear
     
     queryDate=$(date)
-
+    queryType=$1
+    
     echo -n "Enter the details of the $1 query dated: $queryDate"
     read -p ": " queryDetails
     read -p "Enter payment adjustment value if any: " payment
 
-    echo $accountNumber,$queryDetails,$payment > ./output/queries.txt
+    echo $accountNumber,$queryType,$queryDetails,$payment >> ./output/queries.txt
 }
 
 case $selection in
     1) saveQuery "Payment" ;;
+    2) saveQuery "Disconnection" ;;
+    3) saveQuery "Billing" ;;
+    4) saveQuery "New Service" ;;
+    5) saveQuery "Change of Tenancy" ;;
     *) echo "Please enter [1-5]: " 
 esac
 
