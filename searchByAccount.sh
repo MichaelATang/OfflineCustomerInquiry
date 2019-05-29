@@ -18,9 +18,9 @@ function printFinancialData(){
                printf "%-20s $%-20s \n" $transactionDate $transactionAmount
       fi
       
-    done < customerdata/financialdata
+      done < customerdata/financialdata
 
-    echo  -e "\n\n\n\n\n\t\t\tRecord Query Information[2] Main Menu[1] Exit[0]: "
+     echo  -e "\n\n\n\n\n\t\t\tRecord Query Information[2] Main Menu[1] Exit[0]: "
       
 }
 
@@ -30,9 +30,9 @@ function  printBiodata(){
 
    echo "################################ Customer ##############################"
 
-   local accountNum=$(echo $@ | cut -d"," -f1)
-   local name=$(echo $@ | cut -d"," -f2)
-   local address=$(echo $@ | cut -d"," -f3)
+   accountNum=$(echo $@ | cut -d"," -f1)
+   name=$(echo $@ | cut -d"," -f2)
+   address=$(echo $@ | cut -d"," -f3)
    
    
    echo "Account Number: $accountNum "
@@ -50,7 +50,7 @@ customerName=""
 while [ customerName != "E" ]
 do
 
-      read -p "Enter Customer Name: " customerName
+      read -p "Enter Account Number: " customerName
 
       echo $customerName
 
