@@ -28,4 +28,7 @@ RUN  yum -y install oracle-release-el7 && yum-config-manager --enable ol7_oracle
 # Uncomment if the tools package is added
 # ENV PATH=$PATH:/usr/lib/oracle/${release}.${update}/client64/bin
 
+# Add necessary sql files
+ADD customerBioData.sql /home/customerBioData.sql
+
 CMD ["sqlplus", "-v"]
