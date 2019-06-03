@@ -1,0 +1,9 @@
+version: '2'
+
+services:  
+  database:
+    image: offlinecustomerinquiry:v1
+    build: .
+    volumes: 
+      - ./customerdata:/tmp/customerdata
+    

@@ -29,6 +29,11 @@ RUN  yum -y install oracle-release-el7 && yum-config-manager --enable ol7_oracle
 # ENV PATH=$PATH:/usr/lib/oracle/${release}.${update}/client64/bin
 
 # Add necessary sql files
-ADD customerBioData.sql /home/customerBioData.sql
+ADD ./sqlQueries/customerBioData.sql /home/customerBioData.sql
+ADD ./sqlQueries/customerConsumptionData.sql /home/customerConsumptionData.sql
+ADD ./sqlQueries/customerFinancialData.sql /home/customerFinancialData.sql
 
-CMD ["sqlplus", "-v"]
+# Execute queries to generate files
+CMD ["sqlplus", "username/password@ipaddress/oraclesid", "@/home/customerBioData.sql"]
+CMD ["sqlplus", "username/password@ipaddress/oraclesid", "@/home/customerConsumptionData.sql"]
+CMD ["sqlplus", "username/password@ipaddress/oraclesid", "@/home/customerFinancialData.sql"]

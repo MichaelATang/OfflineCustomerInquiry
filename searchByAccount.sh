@@ -18,7 +18,7 @@ function printFinancialData(){
                printf "%-20s $%-20s \n" $transactionDate $transactionAmount
       fi
       
-      done < customerdata/financialdata
+      done < customerdata/financialdata.csv
 
      echo  -e "\n\n\n\n\n\t\t\tRecord Query Information[2] Main Menu[1] Exit[0]: "
       
@@ -74,5 +74,5 @@ do
             printBiodata $line
          fi
          
-      done < customerdata/biodata
+      done < customerdata/biodata.csv
 done

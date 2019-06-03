@@ -16,7 +16,11 @@ case $menu_selection in
 
         "1")
                 clear
+                # check for docker installation
+                source installDocker.sh
+                
                 printf " Importing customer data....\n"
+                source generateFiles.sh
                 ;;
         "2")
                 clear
