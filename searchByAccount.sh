@@ -1,5 +1,38 @@
 #!/bin/bash
 
+
+# clear screen
+clear
+
+# default customer account is blank
+customerAccount=""
+
+# default menu selection = 0
+menuSelection=0
+
+function menuDisplay(){
+      echo  -e "\n\n\n\n\n\t\t Query Another Account[3] Record Query Information[2] Main Menu[1] Exit[5]"
+      read -p "Enter Menu Selection: " menuSelection
+
+      case $menuSelection in 
+         "5") 
+            clear
+            exit
+         ;;
+         "2")
+            source searchByAccount.sh
+         ;;
+         "3")
+            return
+         ;;
+         "1")
+            source mainMenu.sh   
+         ;;
+      esac
+
+}
+
+
 function printFinancialData(){
 
     echo "############################ Financial Data ############################"
@@ -19,8 +52,6 @@ function printFinancialData(){
       fi
       
       done < customerdata/financialdata.csv
-
-     echo  -e "\n\n\n\n\n\t\t\tRecord Query Information[2] Main Menu[1] Exit[0]: "
       
 }
 
@@ -44,35 +75,34 @@ function  printBiodata(){
    
 }
 
-clear
-customerName=""
 
-while [ customerName != "E" ]
+while [ menuSelection != "5" ]
 do
+      clear
+      
+      read -p "Enter Account Number: " customerAccount  
 
-      read -p "Enter Account Number: " customerName
-
-      echo $customerName
-
-      case $customerName in 
-         "0") 
-            clear
-            exit
-         ;;
-         "1")
-            source mainMenu.sh   
-         ;;
-      esac
+      # case $customerAccount in 
+      #    "5") 
+      #       clear
+      #       exit
+      #    ;;
+      #    "1")
+      #       source mainMenu.sh   
+      #    ;;
+      # esac
 
       while read line
       do
          
-         name=$(echo "$line" | cut -d"," -f2)
+         account=$(echo "$line" | cut -d"," -f1)
          
-         if [[ $name == *$customerName* ]]
+         if [[ $account == $customerAccount ]]
          then
             printBiodata $line
          fi
          
       done < customerdata/biodata.csv
+
+      menuDisplay
 done

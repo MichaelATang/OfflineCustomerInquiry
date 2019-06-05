@@ -1,73 +1,62 @@
 #!/bin/bash
 
-function printFinancialData(){
-
-    echo "############################ Financial Data ############################"
-    printf "%-20s %-20s \n" "Date" "Transaction Amount"
-
-    while read line
-    do
-       
-      local accountNum=$(echo "$line" | cut -d"," -f1)
-      local transactionDate=$(echo "$line" | cut -d"," -f2)
-      local transactionAmount=$(echo "$line " | cut -d"," -f3)
-    
-      if [ $accountNum == $1 ]
-      then
-               
-               printf "%-20s $%-20s \n" $transactionDate $transactionAmount
-      fi
-      
-    done < customerdata/financialdata.csv
-
-    echo  -e "\n\n\n\n\n\t\t\tRecord Query Information[2] Main Menu[1] Exit[0]: "
-      
-}
-
-function  printBiodata(){
-  
-   clear
-
-   echo "################################ Customer ##############################"
-
-   local accountNum=$(echo $@ | cut -d"," -f1)
-   local name=$(echo $@ | cut -d"," -f2)
-   local address=$(echo $@ | cut -d"," -f3)
-   
-   
-   echo "Account Number: $accountNum "
-   echo "Customer Name:  $name "
-   echo "Address:  $address "
-
-   printFinancialData $accountNum
-
-   
-}
-
+# clear screen
 clear
+
+# default customer name is blank
 customerName=""
 
-while [ customerName != "E" ]
-do
+# default menu selection = 0
+menuSelection=0
 
-      read -p "Enter Customer Name: " customerName
+function menuDisplay(){
+      echo  -e "\n\n\n\n\n\t Query Another Name[3] Query Account[2] Main Menu[1] Exit[5]"
+      read -p "Enter Menu Selection: " menuSelection
 
-      echo $customerName
-
-      case $customerName in 
-         "0") 
+      case $menuSelection in 
+         "5") 
             clear
             exit
+         ;;
+         "2")
+            source searchByAccount.sh
+         ;;
+         "3")
+            return
          ;;
          "1")
             source mainMenu.sh   
          ;;
       esac
 
+}
+
+
+function  printBiodata(){
+     
+   local accountNum=$(echo $@ | cut -d"," -f1)
+   local name=$(echo $@ | cut -d"," -f2)
+   local address=$(echo $@ | cut -d"," -f3)
+   
+   
+   echo -n -e "Account Number: $accountNum  Customer Name:  $name  Address:  $address \n"  
+   echo "-------------------------------------------------------------------------------------" 
+}
+
+
+while [ menuSelection != "5" ]
+do
+      
+      clear
+      read -p "Enter Customer Name: " customerName      
+      clear
+
+      echo "##################################### Found Customers #################################"   
+
       while read line
       do
          
-         name=$(echo "$line" | cut -d"," -f2)
+         name=$(echo "$line" | cut -d"," -f2)         
          
          if [[ $name == *$customerName* ]]
          then
@@ -75,4 +64,6 @@ do
          fi
          
       done < customerdata/biodata.csv
+      printf "\n"
+      menuDisplay
 done

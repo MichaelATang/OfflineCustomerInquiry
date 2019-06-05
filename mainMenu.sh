@@ -1,14 +1,14 @@
 clear
-printf "\n\n\n\n\n**************** GPLs OFFLINE ACCOUNT INQUIRY********************\n"
+printf "\n\n\n\n\n**************** \e[1m GPLs OFFLINE ACCOUNT INQUIRY \e[0m******************\n"
 echo "********** Welcome: $(whoami)       Date: $(date +%d-%m-%Y) ****************"
-printf "*********************** MENU   **********************************\n"
-printf "*********** 1) Generate Current Customer Files ******************\n"
-printf "*********** 2) Search By Customer Account #  ********************\n"
-printf "*********** 3) Search By Customer Name  *************************\n"
-printf "*********** 4) Reports                  *************************\n"
-printf "*********** 6) Email Data               *************************\n"
-printf "*********** 5) Exit                     *************************\n"
-printf "*****************************************************************\n\n"
+printf "*********************** MENU   **********************************\n
+*********** 1) Generate Current Customer Files ******************
+*********** 2) Search By Customer Account #  ********************
+*********** 3) Search By Customer Name  *************************
+*********** 4) Reports                  *************************
+*********** 6) Email Data               *************************
+*********** 5) Exit                     *************************
+*****************************************************************\n\n"
 
 read -p  "        Enter your selection:        "   menu_selection
 
