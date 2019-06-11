@@ -60,6 +60,8 @@ case $selection in
 
 "5")
    #https://linuxhint.com/bash_script_send_email/
+   #https://www.tecmint.com/send-mail-from-command-line-using-mutt-command/
+   mutt -s "GPL Outreach" michaelandrewtang@gmail.com -a output/queries.txt < config/emailBody.txt 
 
    ;;	
 
