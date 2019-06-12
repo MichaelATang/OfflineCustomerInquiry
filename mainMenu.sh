@@ -29,9 +29,11 @@ case $menu_selection in
                 source searchByAccount.sh
                 ;;
         "3")
+                # search by name
                 source searchByName.sh
                 ;;
         "4")
+                # reporting
                 source reports.sh
                 ;;                
         "5")
