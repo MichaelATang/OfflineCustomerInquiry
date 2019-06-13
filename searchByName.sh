@@ -10,7 +10,7 @@ customerName=""
 menuSelection=0
 
 function menuDisplay(){
-      echo  -e "\n\n\n\n\n\t Query Another Name[3] Query Account[2] Main Menu[1] Exit[5]"
+      echo  -e "\n\n\n\n\nQuery Another Name[3] Query Account[2] Main Menu[1] Exit[5]"
       read -p "Enter Menu Selection: " menuSelection
 
       case $menuSelection in 
