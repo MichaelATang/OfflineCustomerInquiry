@@ -1,7 +1,7 @@
 clear
 printf "\n\n\n\n\n**************** \e[1m GPLs OFFLINE ACCOUNT INQUIRY \e[0m******************\n"
 echo "********** Welcome: $(whoami)       Date: $(date +%d-%m-%Y) ****************"
-printf "*********************** MENU   **********************************\n
+printf "***********************   MENU  *********************************
 *********** 1) Generate Current Customer Files ******************
 *********** 2) Search By Customer Account #  ********************
 *********** 3) Search By Customer Name  *************************

@@ -44,6 +44,28 @@ function menuDisplay(){
 
 }
 
+function printConsumptionData(){
+
+    echo "############################ Consumption Data ############################"
+    printf "%-20s %-20s %-20s \n" "Date" "Reading" "Consumption"
+
+    while read line
+    do
+       
+      local accountNum=$(echo "$line" | cut -d"," -f1)
+      local readingDate=$(echo "$line" | cut -d"," -f2)
+      local reading=$(echo "$line " | cut -d"," -f3)
+      local consumption=$(echo "$line " | cut -d"," -f4)
+
+      if [ $accountNum = $1 ]
+      then               
+         printf "%-20s %-20s %-20s\n" $readingDate $reading $consumption
+      fi
+      
+      done < customerdata/consumptiondata.csv
+      
+}
+
 
 function printFinancialData(){
 
@@ -63,6 +85,8 @@ function printFinancialData(){
       fi
       
       done < customerdata/financialdata.csv
+
+      printConsumptionData $accountNum
       
 }
 

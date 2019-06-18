@@ -21,6 +21,8 @@ function money_by_query_type(){
     # declare an associative array for sum storage	
    declare -A queryTypes	
       
+   #set -x
+   
    # read data from files
    while read -e line
    do
@@ -40,7 +42,7 @@ function money_by_query_type(){
             # assign amount to associative array		
       queryTypes["$queryT"]=$queryA
       fi
-      done < output/queries.txt
+   done < output/queries.txt
 
 
       # print out the array and values
@@ -50,14 +52,34 @@ function money_by_query_type(){
         echo "${queryTypes[$key]}"	
       done
 
-
+    #set +x
 
    # pause effect
    read -p ""
 }
 
 function query_detail(){
-      cat output/queries.txt
+      #cat output/queries.txt
+
+      while read -e line
+      do
+      
+      account=$(echo $line | cut -d"," -f1 )
+
+      # query type
+      queryT=$(echo $line | cut -d"," -f2 ) 
+
+      # query comments
+      queryC=$(echo $line | cut -d"," -f3 )	
+
+      # query amount
+      queryA=$(echo $line | cut -d"," -f4 ) 	
+
+
+      printf "Account: %-20s Query Type: %-20s \nComments: %s"  $account $queryT 
+      echo -n $queryC
+      printf " \nEstimated Amount: %s \n-----------------------------------------------------------------\n" $queryA
+      done < output/queries.txt
 
 
       # pause effect
@@ -76,12 +98,16 @@ clear
 function menuDisplay(){
       clear
 
-      echo "1) Summary"
-      echo "2) Queries By Type"
-      echo "3) Money Value by Query Type"
-      echo "4) Query Detail"
-      echo "5) Email Data"
-      echo "6) Main Menu"
+printf "\n\n\n\n\n**************** \e[1m GPLs OFFLINE ACCOUNT INQUIRY \e[0m******************\n"
+echo "********** Welcome: $(whoami)       Date: $(date +%d-%m-%Y) ****************"
+printf "*********************** MENU   **********************************
+**************** 1) Summary                     *****************
+**************** 2) Queries By Type             *****************
+**************** 3) Money Value by Query Type   *****************
+**************** 4) Query Detail                *****************
+**************** 5) Email Data                  *****************
+**************** 6) Main Menu                   *****************
+*****************************************************************\n\n"
 
       read -p "Enter your selection: " menuSelection
 
