@@ -1,3 +1,12 @@
+function email_data(){
+   #https://linuxhint.com/bash_script_send_email/
+   #https://www.tecmint.com/send-mail-from-command-line-using-mutt-command/
+   mutt -s "GPL Outreach" $1 -a output/queries.txt < config/emailBody.txt 
+}
+
+
+
+
 clear
 printf "\n\n\n\n\n**************** \e[1m GPLs OFFLINE ACCOUNT INQUIRY \e[0m******************\n"
 echo "********** Welcome: $(whoami)       Date: $(date +%d-%m-%Y) ****************"
@@ -6,8 +15,8 @@ printf "***********************   MENU  *********************************
 *********** 2) Search By Customer Account #  ********************
 *********** 3) Search By Customer Name  *************************
 *********** 4) Reports                  *************************
-*********** 6) Email Data               *************************
-*********** 5) Exit                     *************************
+*********** 5) Email Data               *************************
+*********** 6) Exit                     *************************
 *****************************************************************\n\n"
 
 read -p  "        Enter your selection:        "   menu_selection
@@ -16,8 +25,8 @@ case $menu_selection in
 
         "1")
                 clear
-                # check for docker installation
-                source installDocker.sh
+                # check for prerequisite software installation
+                source installSoftware.sh
                 
                 printf " Importing customer data....\n"
                 source generateFiles.sh
@@ -35,8 +44,13 @@ case $menu_selection in
         "4")
                 # reporting
                 source reports.sh
-                ;;                
+                ;;
         "5")
+               clear
+               read -p "Please enter email address: " emailAddress
+               email_data $emailAddress
+                ;;                               
+        "6")
                 clear
                 exit
                 ;;

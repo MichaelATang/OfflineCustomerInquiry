@@ -7,33 +7,46 @@ if [ $? -ne 0 ]
 then
     echo "######### Installing Docker ############"
     echo "########## Updating Repositories #############"
-    sudo apt -qq update
+    sudo apt -qqy update && sudo apt -qqy upgrade
     
-    echo "########## Installing Prerequisites ##########"
-    sudo apt -qq -y install apt-transport-https ca-certificates curl software-properties-common
-    
-    echo "########## Adding Docker's GPG Key ###########"
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
-    
-    echo "########## Installing Docker Repository #########"
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    echo "####### Install Prerequisite Software #######" 
+    sudo apt -y -qq  install docker docker-compose ssmtp gnupg2 pass
 
-    echo "########## Updating Repositories #############"
-    sudo apt -qq update
 
-    echo "####### Install Latest Version of Docker #######"
-    sudo apt -y -qq  install docker-ce
-    sudo snap install docker
+    #sudo snap install docker
     sudo docker start
 fi
+
+    echo "##### Configure SSMTP ####"
+    
+    echo "UseSTARTTLS=YES
+    FromLineOverride=YES
+    root=admin@example.com
+    mailhub=smtp.gmail.com:587
+    AuthUser=michaelandrewtang@gmail.com
+    AuthPass=mypassword" | sudo tee -a /etc/ssmtp/ssmtp.conf
+
+
+    echo "###### Build Oracle Test Database #####"
+    sudo docker login    
+    sudo docker pull store/oracle/database-enterprise:12.2.0.1
+
 
 
     echo "####### Docker Installed #########"
 
     echo "#### Get Dockerfile from GIT Repo ########"
-    wget https://raw.githubusercontent.com/oracle/docker-images/master/OracleInstantClient/dockerfiles/19/Dockerfile
 
-    echo "##### Building Docker Image ########"
+    if [ -e Dockerfile ] 
+    then
+        echo "#### Dockerfile Exists!"
+    else
+        wget https://raw.githubusercontent.com/oracle/docker-images/master/OracleInstantClient/dockerfiles/19/Dockerfile
+    fi
+
+    echo "##### Building Docker Oracle Client Image ########"
     # maybe add a wait time
     
     sudo docker build -t oracle/instantclient:19 .
+
+

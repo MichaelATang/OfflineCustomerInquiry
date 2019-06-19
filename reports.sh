@@ -86,11 +86,6 @@ function query_detail(){
       read -p ""
 }
 
-function email_data(){
-   #https://linuxhint.com/bash_script_send_email/
-   #https://www.tecmint.com/send-mail-from-command-line-using-mutt-command/
-   mutt -s "GPL Outreach" michaelandrewtang@gmail.com -a output/queries.txt < config/emailBody.txt 
-}
 
 clear
 
@@ -105,8 +100,7 @@ printf "*********************** MENU   **********************************
 **************** 2) Queries By Type             *****************
 **************** 3) Money Value by Query Type   *****************
 **************** 4) Query Detail                *****************
-**************** 5) Email Data                  *****************
-**************** 6) Main Menu                   *****************
+**************** 5) Main Menu                   *****************
 *****************************************************************\n\n"
 
       read -p "Enter your selection: " menuSelection
@@ -130,13 +124,9 @@ printf "*********************** MENU   **********************************
             ;;
 
          "5")
-            email_data
-            ;;	
-
-         "6")
             source mainMenu.sh
             ;;
-         "7" )
+         "6" )
             clear
             exit
             ;;
