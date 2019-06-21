@@ -34,6 +34,6 @@ ADD ./sqlQueries/customerConsumptionData.sql /home/customerConsumptionData.sql
 ADD ./sqlQueries/customerFinancialData.sql /home/customerFinancialData.sql
 
 # Execute queries to generate files
-CMD ["sqlplus", "username/password@ipaddress/oraclesid", "@/home/customerBioData.sql"]
-CMD ["sqlplus", "username/password@ipaddress/oraclesid", "@/home/customerConsumptionData.sql"]
-CMD ["sqlplus", "username/password@ipaddress/oraclesid", "@/home/customerFinancialData.sql"]
+CMD ["sqlplus", "testuser/testuser@localhost:32769/ORCLCDB", "@/home/customerBioData.sql"]
+CMD ["sqlplus", "testuser/testuser@ipaddress/ORCLCDB", "@/home/customerConsumptionData.sql"]
+CMD ["sqlplus", "testuser/testuser@ipaddress/ORCLCDB", "@/home/customerFinancialData.sql"]

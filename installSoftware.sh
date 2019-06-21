@@ -30,9 +30,20 @@ fi
     echo "###### Build Oracle Test Database #####"
     sudo docker login    
     sudo docker pull store/oracle/database-enterprise:12.2.0.1
+    sudo docker run -d -ti --name oracletestdb -p 1521:1521 -p 5500:5500 store/oracle/database-enterprise:12.2.0.1
 
+    # wait for a few minutes for database to begin
+    # connecting from outside to database
+    # sudo docker exec -it oracletestdb bash -c "source /home/oracle/.bashrc; /bin/bash"
+    
+    # listening port
+    # sudo docker port oracletestdb
+    
+    # instant client connection
+    # sudo docker run -ti oracle/instantclient:19 sqlplus sys/Oradoc_db1@172.17.0.1:32771/ORCLPDB1.localdomain as sysdba
+    # sudo docker run -ti oracle/instantclient:19 sqlplus testuser/testuser@172.17.0.1:32771/ORCLPDB1.localdomain
 
-
+     
     echo "####### Docker Installed #########"
 
     echo "#### Get Dockerfile from GIT Repo ########"
