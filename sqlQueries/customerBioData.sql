@@ -1,9 +1,9 @@
 set heading off
 set newpage none
 
-spool /tmp/customerdata/biodata.csv
+spool /tmp/customerdata/biodata_dbtest.csv
 
-select trim(account#), trim(name), trim(address)
+select trim(account#) || ',' || trim(name) || ',' || trim(address)
 from biodata;
 
 spool off

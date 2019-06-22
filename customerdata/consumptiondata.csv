@@ -1,3 +1,12 @@
 1111111,01-April-2019,2230,30
 1111111,01-March-2019,2200,50
 1111111,01-February-2019,2150,30
+
+create table consumptiondata(account# varchar(7), readingdate varchar(10), reading number(10), consumption number(10));
+insert into consumptiondata values(1111111, '2019-04-01',2230,30);
+
+
+create table financialdata(account# varchar(7), paymentdate varchar(10), amount number(10));
+insert into financialdata values(1111111,'2019-04-10', -10000);
+
+insert into biodata values(1111112,'Andrew Tang','50 Duke Street');

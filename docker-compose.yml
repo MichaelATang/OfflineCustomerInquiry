@@ -6,4 +6,6 @@ services:
     build: .
     volumes: 
       - ./customerdata:/tmp/customerdata
-    
+    command: bash -c "sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain @/home/customerBioData.sql &&
+             sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain @/home/customerConsumptionData.sql &&
+             sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain @/home/customerFinancialData.sql"

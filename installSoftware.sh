@@ -32,6 +32,8 @@ fi
     sudo docker pull store/oracle/database-enterprise:12.2.0.1
     sudo docker run -d -ti --name oracletestdb -p 1521:1521 -p 5500:5500 store/oracle/database-enterprise:12.2.0.1
 
+    #sudo docker container start oracletestdb
+
     # wait for a few minutes for database to begin
     # connecting from outside to database
     # sudo docker exec -it oracletestdb bash -c "source /home/oracle/.bashrc; /bin/bash"

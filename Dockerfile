@@ -33,7 +33,12 @@ ADD ./sqlQueries/customerBioData.sql /home/customerBioData.sql
 ADD ./sqlQueries/customerConsumptionData.sql /home/customerConsumptionData.sql
 ADD ./sqlQueries/customerFinancialData.sql /home/customerFinancialData.sql
 
+RUN mkdir /tmp/customerdata
+
 # Execute queries to generate files
-CMD ["sqlplus", "testuser/testuser@localhost:32769/ORCLCDB", "@/home/customerBioData.sql"]
-CMD ["sqlplus", "testuser/testuser@ipaddress/ORCLCDB", "@/home/customerConsumptionData.sql"]
-CMD ["sqlplus", "testuser/testuser@ipaddress/ORCLCDB", "@/home/customerFinancialData.sql"]
+#RUN sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain @/home/customerBioData.sql
+#RUN sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain @/home/customerConsumptionData.sql
+#RUN sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain @/home/customerFinancialData.sql
+
+#CMD ["sqlplus", "testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain", "@/home/customerConsumptionData.sql"]
+#CMD ["sqlplus", "testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain", "@/home/customerFinancialData.sql"]

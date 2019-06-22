@@ -1,9 +1,9 @@
 set heading off
 set newpage none
 
-spool /tmp/customerdata/consumptiondata.csv
+spool /tmp/customerdata/consumptiondata_dbtest.csv
 
-select trim(firstname) || ',' || trim(lastname)
-from tablename;
+select trim(account#) || ',' || trim(readingdate) || ',' || reading || ',' || consumption
+from consumptiondata;
 
 spool off
