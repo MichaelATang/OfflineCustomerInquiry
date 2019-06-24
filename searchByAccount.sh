@@ -18,12 +18,13 @@ function menuDisplay(){
       
       if [ $notFound -eq 0 ]
       then 
-         echo  -e "Query Another Account[3] Save Query Information[2] Main Menu[1] Exit[5]"
+         printf "Query Another Account[3] Save Query Information[2] Main Menu[1] \e[31m Exit[5] \e[0m \n"
       else
-          echo  -e "Query Another Account[3] Main Menu[1] Exit[5]"
+         printf "Query Another Account[3] Main Menu[1] \e[31mExit[5] \e[0m \n"
       fi
-
-      read  -p "Enter Menu Selection: " menuSelection
+      
+      printf "\e[92mEnter Menu Selection: \e[0m"
+      read  -p "" menuSelection
 
       case $menuSelection in 
          "5") 
@@ -111,8 +112,8 @@ function  printBiodata(){
 }
 
 function printNotFoundMessage(){
-
-   echo -e "\n\n\n\t\t\t\tAccount not found!"
+  
+   printf "\e[31m\n\n\n\t\t\t\tAccount not found! \e[0m"   
 
 }
 
@@ -122,7 +123,8 @@ while [ menuSelection != "5" ]
 do
       clear
       
-      read -p "Enter Account Number: " customerAccount  
+      printf "\e[92m Enter Account Number: \e[0m"
+      read -p "" customerAccount  
 
       
       while read line

@@ -1,0 +1,23 @@
+#sudo docker container start oracletestdb
+
+    # wait for a few minutes for database to begin
+    # connecting from outside to database
+    # sudo docker exec -it oracletestdb bash -c "source /home/oracle/.bashrc; /bin/bash"
+    
+    # listening port
+    # sudo docker port oracletestdb
+    
+    # instant client connection
+    # sudo docker run -ti oracle/instantclient:19 sqlplus sys/Oradoc_db1@172.17.0.1:32771/ORCLPDB1.localdomain as sysdba
+    # sudo docker run -ti oracle/instantclient:19 sqlplus testuser/testuser@172.17.0.1:32771/ORCLPDB1.localdomain
+
+
+
+create table consumptiondata(account# varchar(7), readingdate varchar(10), reading number(10), consumption number(10));
+insert into consumptiondata values(1111111, '2019-04-01',2230,30);
+
+
+create table financialdata(account# varchar(7), paymentdate varchar(10), amount number(10));
+insert into financialdata values(1111111,'2019-04-10', -10000);
+
+insert into biodata values(1111112,'Andrew Tang','50 Duke Street');

@@ -10,8 +10,9 @@ customerName=""
 menuSelection=0
 
 function menuDisplay(){
-      echo  -e "\n\n\n\n\nQuery Another Name[3] Query Account[2] Main Menu[1] Exit[5]"
-      read -p "Enter Menu Selection: " menuSelection
+      printf "\n\n\n\n\nQuery Another Name[3] Query Account[2] Main Menu[1] \e[31mExit[5] \e[0m \n"
+      printf "\e[92mEnter Menu Selection: \e[0m"
+      read -p "" menuSelection
 
       case $menuSelection in 
          "5") 
@@ -51,7 +52,7 @@ do
       read -p "Enter Customer Name: " customerName      
       clear
 
-      echo "##################################### Found Customers #################################"   
+      printf "\e[92m##################################### Found Customers #################################\e[0m\n"   
 
       while read line
       do

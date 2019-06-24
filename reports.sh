@@ -4,18 +4,22 @@
 menuSelection=0
 
 function summary(){
+
+printf "\n\n\n\n\n################ Summary of Queries ##################\n\n
+Count | Query Type\n
+=================================\n"
    cat output/queries.txt | cut -d"," -f2 | sort | uniq -c
    
    # pause effect
    read -p ""
 }
 
-function queries_by_type(){
-   cat output/queries.txt | cut -d"," -f2 | uniq -c | grep "Disconnection"
+# function queries_by_type(){
+#    cat output/queries.txt | cut -d"," -f2 | uniq -c | grep "Disconnection"
    
-   # pause effect
-   read -p ""
-}
+#    # pause effect
+#    read -p ""
+# }
 
 function money_by_query_type(){
     # declare an associative array for sum storage	
@@ -97,9 +101,8 @@ printf "\n\n\n\n\n**************** \e[1m GPLs OFFLINE ACCOUNT INQUIRY \e[0m*****
 echo "********** Welcome: $(whoami)       Date: $(date +%d-%m-%Y) ****************"
 printf "*********************** MENU   **********************************
 **************** 1) Summary                     *****************
-**************** 2) Queries By Type             *****************
-**************** 3) Money Value by Query Type   *****************
-**************** 4) Query Detail                *****************
+**************** 2) Money Value by Query Type   *****************
+**************** 3) Query Detail                *****************
 **************** 5) Main Menu                   *****************
 *****************************************************************\n\n"
 
@@ -110,15 +113,15 @@ printf "*********************** MENU   **********************************
             clear
             summary
             ;;
+         # "2")
+         #    clear
+         #    queries_by_type    
+         #    ;;
          "2")
-            clear
-            queries_by_type    
-            ;;
-         "3")
             clear
             money_by_query_type
             ;;	
-         "4")
+         "3")
             clear
             query_detail  
             ;;
