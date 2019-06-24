@@ -5,26 +5,28 @@ function email_data(){
    #https://linuxhint.com/bash_script_send_email/
    #https://www.tecmint.com/send-mail-from-command-line-using-mutt-command/
    mutt -s "GPL Outreach" $1 -a output/queries.txt < config/emailBody.txt 
+
+   source mainMenu.sh
 }
 
 
 clear
 printf "\n\n\n\n\n**************** \e[1m GPLs OFFLINE ACCOUNT INQUIRY \e[0m******************\n"
-printf "********** \e[1m Welcome: \e[0m %s      \e[1m Date: \e[0m %s ************** \n" $(whoami) $(date +%d-%m-%Y)
+printf "********** \e[1m Welcome: \e[0m %s      \e[1m Date: \e[0m %s ************* \n" $(whoami) $(date +%d-%m-%Y)
 printf "***********\t\t  \e[1m  \e[4m MAIN MENU  \e[0m    \t\t*********"
 
 if [ $(id -u) -eq 0 ]
 then
-        printf "\n*********** 0) Install Prerequisite Software ********************"
+        printf "\n*********** 0) Install Prerequisite Software    *****************"
 fi
 
 printf "
-*********** 1) Generate Current Customer Files ******************
-*********** 2) Search By Customer Account #  ********************
-*********** 3) Search By Customer Name  *************************
-*********** 4) Reports                  *************************
-*********** 5) Email Data               *************************
-*********** \e[31m6) Exit\e[0m                     *************************
+*********** 1) Generate Current Customer Files  *****************
+*********** 2) Search By Customer Account #     *****************
+*********** 3) Search By Customer Name          *****************
+*********** 4) Reports                          *****************
+*********** 5) Email Data                       *****************
+*********** \e[31m6) Exit\e[0m                             *****************
 *****************************************************************\n\n
 \t \e[92m Enter your selection: \e[0m  "
 read -p  ""   menu_selection

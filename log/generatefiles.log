@@ -1,0 +1,48 @@
+Attaching to offlinecustomerinquiry_database_1
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m SQL*Plus: Release 19.0.0.0.0 - Production on Mon Jun 24 22:13:12 2019
+[36mdatabase_1  |[0m Version 19.3.0.0.0
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Last Successful login time: Mon Jun 24 2019 22:09:16 +00:00
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Connected to:
+[36mdatabase_1  |[0m Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m 1111111,Michael Tang,40 Main Street
+[36mdatabase_1  |[0m 1111112,Andrew Tang,50 Duke Street
+[36mdatabase_1  |[0m 1111113,Test user,Nowhere
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m SQL*Plus: Release 19.0.0.0.0 - Production on Mon Jun 24 22:13:13 2019
+[36mdatabase_1  |[0m Version 19.3.0.0.0
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Last Successful login time: Mon Jun 24 2019 22:13:13 +00:00
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Connected to:
+[36mdatabase_1  |[0m Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m 1111111,2019-04-01,2230,30
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m SQL*Plus: Release 19.0.0.0.0 - Production on Mon Jun 24 22:13:13 2019
+[36mdatabase_1  |[0m Version 19.3.0.0.0
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Last Successful login time: Mon Jun 24 2019 22:13:13 +00:00
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m Connected to:
+[36mdatabase_1  |[0m Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m 1111111,2019-05-25,-5000
+[36mdatabase_1  |[0m 1111111,2019-04-10,-10000
+[36mdatabase_1  |[0m 
+[36mdatabase_1  |[0m SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[36mofflinecustomerinquiry_database_1 exited with code 0
+[0m
