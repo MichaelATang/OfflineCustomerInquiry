@@ -5,9 +5,9 @@ menuSelection=0
 
 function summary(){
 
-printf "\n\n\n\n\n################ Summary of Queries ##################\n\n
-Count | Query Type\n
-=================================\n"
+printf "\n\n\n\n\n################ Summary of Query Types ##################\n\n
+\e[92mCount | Query Type\e[0m
+\e[94m=================================\e[0m\n"
    cat output/queries.txt | cut -d"," -f2 | sort | uniq -c
    
    # pause effect
@@ -26,6 +26,10 @@ function money_by_query_type(){
    declare -A queryTypes	
       
    #set -x
+
+printf "\n\n\n\n\n################ Summary of Query Value ##################\n\n
+\e[92mQuery Type | Amount\e[0m
+\e[94m=================================\e[0m\n"
    
    # read data from files
    while read -e line
@@ -52,7 +56,7 @@ function money_by_query_type(){
       # print out the array and values
       for key in ${!queryTypes[@]}
       do
-	     echo -n "$key $"
+	     echo -n "$key    $"
         echo "${queryTypes[$key]}"	
       done
 
@@ -80,10 +84,11 @@ function query_detail(){
       queryA=$(echo $line | cut -d"," -f4 ) 	
 
 
-      printf "Account: %-20s Query Type: %-20s \nComments: %s"  $account $queryT 
+      printf "\e[92mAccount:\e[0m %-20s \e[92mQuery Type:\e[0m %-20s \n\e[92mComments:\e[0m %s"  $account $queryT 
       echo -n $queryC
-      printf " \nEstimated Amount: %s \n-----------------------------------------------------------------\n" $queryA
+      printf " \n\e[92mEstimated Amount:\e[0m $%s \n\e[94m-----------------------------------------------------------------\e[0m\n" $queryA
       done < output/queries.txt
+
 
 
       # pause effect

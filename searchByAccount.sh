@@ -47,8 +47,8 @@ function menuDisplay(){
 
 function printConsumptionData(){
 
-    echo "############################ Consumption Data ############################"
-    printf "%-20s %-20s %-20s \n" "Date" "Reading" "Consumption"
+    echo -e "\n############################ Consumption Data ##########################"
+    printf "\e[92m%-20s %-20s %-20s\e[0m\n" "Date" "Reading" "Consumption"
 
     while read line
     do
@@ -70,8 +70,8 @@ function printConsumptionData(){
 
 function printFinancialData(){
 
-    echo "############################ Financial Data ############################"
-    printf "%-20s %-20s \n" "Date" "Transaction Amount"
+    echo -e "\n############################ Financial Data ############################"
+    printf "\e[92m%-20s %-20s\e[0m \n" "Date" "Transaction Amount"
 
     while read line
     do
@@ -102,9 +102,9 @@ function  printBiodata(){
    address=$(echo $@ | cut -d"," -f3)
    
    
-   echo "Account Number: $accountNum "
-   echo "Customer Name:  $name "
-   echo "Address:  $address "
+   echo -e "\e[92mAccount Number:\e[0m $accountNum "
+   echo -e "\e[92mCustomer Name:\e[0m  $name "
+   echo -e "\e[92mAddress:\e[0m  $address "
 
    printFinancialData $accountNum
 

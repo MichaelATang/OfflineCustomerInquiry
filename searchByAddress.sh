@@ -40,8 +40,8 @@ function  printBiodata(){
    local address=$(echo $@ | cut -d"," -f3)
    
    
-   echo -n -e "Account Number: $accountNum  Customer Name:  $name  Address:  $address \n"  
-   echo "-------------------------------------------------------------------------------------" 
+   echo -n -e "\e[92mAccount Number:\e[0m $accountNum  \e[92mCustomer Name:\e[0m  $name  \e[92mAddress:\e[0m  $address \n"  
+   echo -e "\e[94m-------------------------------------------------------------------------------------\e[0m" 
 }
 
 
