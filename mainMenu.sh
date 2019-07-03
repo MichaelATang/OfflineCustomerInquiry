@@ -24,9 +24,10 @@ printf "
 *********** 1) Generate Current Customer Files  *****************
 *********** 2) Search By Customer Account #     *****************
 *********** 3) Search By Customer Name          *****************
-*********** 4) Reports                          *****************
-*********** 5) Email Data                       *****************
-*********** \e[31m6) Exit\e[0m                             *****************
+*********** 4) Search By Address                *****************
+*********** 5) Reports                          *****************
+*********** 6) Email Data                       *****************
+*********** \e[31m9) Exit\e[0m                             *****************
 *****************************************************************\n\n
 \t \e[92m Enter your selection: \e[0m  "
 read -p  ""   menu_selection
@@ -53,15 +54,19 @@ case $menu_selection in
                 source searchByName.sh
                 ;;
         "4")
+                # search by name
+                source searchByAddress.sh
+                ;;        
+        "5")
                 # reporting
                 source reports.sh
                 ;;
-        "5")
+        "6")
                clear
                read -p "Please enter email address: " emailAddress
                email_data $emailAddress
                 ;;                               
-        "6")
+        "9")
                 clear
                 exit
                 ;;

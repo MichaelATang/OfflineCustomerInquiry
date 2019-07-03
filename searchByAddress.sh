@@ -4,13 +4,13 @@
 clear
 
 # default customer name is blank
-customerName=""
+customerAddress=""
 
 # default menu selection = 0
 menuSelection=0
 
 function menuDisplay(){
-      printf "\n\n\n\n\nQuery Another Name[3] Query Account[2] Main Menu[1] \e[31mExit[5] \e[0m \n"
+      printf "\n\n\n\n\nQuery Another Address[3] Query Account[2] Main Menu[1] \e[31mExit[5] \e[0m \n"
       printf "\e[92mEnter Menu Selection: \e[0m"
       read -p "" menuSelection
 
@@ -49,7 +49,7 @@ while [ menuSelection != "5" ]
 do
       
       clear
-      read -p "Enter Customer Name: " customerName      
+      read -p "Enter Address: " customerAddress      
       clear
 
       printf "\e[92m##################################### Found Customers #################################\e[0m\n"   
@@ -57,9 +57,9 @@ do
       while read line
       do
          
-         name=$(echo "$line" | cut -d"," -f2)         
+         name=$(echo "$line" | cut -d"," -f3)         
          
-         if [[ $name == *$customerName* ]]
+         if [[ $name == *$customerAddress* ]]
          then
             printBiodata $line
          fi

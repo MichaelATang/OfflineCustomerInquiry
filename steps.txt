@@ -9,7 +9,7 @@
     
     # instant client connection
     # sudo docker run -ti oracle/instantclient:19 sqlplus sys/Oradoc_db1@172.17.0.1:32771/ORCLPDB1.localdomain as sysdba
-    # sudo docker run -ti oracle/instantclient:19 sqlplus testuser/testuser@172.17.0.1:32771/ORCLPDB1.localdomain
+    # sudo docker run -ti oracle/instantclient:19 sqlplus testuser/testuser@172.17.0.1:32769/ORCLPDB1.localdomain
 
 
 
@@ -22,3 +22,5 @@ insert into financialdata values(1111111,'2019-04-10', -10000);
 
 insert into biodata values(1111113,'Test user','Nowhere');
 commit;
+
+ramkripal.ai@gmail.com

@@ -63,7 +63,7 @@ function printConsumptionData(){
          printf "%-20s %-20s %-20s\n" $readingDate $reading $consumption
       fi
       
-      done < customerdata/consumptiondata.csv
+      done < customerdata/consumptiondata_dbtest.csv
       
 }
 
@@ -85,7 +85,7 @@ function printFinancialData(){
          printf "%-20s $%-20s \n" $transactionDate $transactionAmount
       fi
       
-      done < customerdata/financialdata.csv
+      done < customerdata/financialdata_dbtest.csv
 
       printConsumptionData $accountNum
       
@@ -141,7 +141,7 @@ do
             notFound=1         
          fi
          
-      done < customerdata/biodata.csv
+      done < customerdata/biodata_dbtest.csv
 
       if [ $notFound -eq 1 ]
       then
