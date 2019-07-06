@@ -1,10 +1,4 @@
 1111111,Disconnection,suspected tampering,45000
 1111112,Payment,Payment not reflected on account,6000
 1111113,Payment,Payment in error,34000
-1111111,Payment,test,5500
-1111112,Billing,Not Receiving Bills,0
-1111113,ChangeOfTenancy,change of tenancy,0
-1111114,NewService,Not receiving bills,0
-1111111,Billing,Billing seems high,2000
-1111111,NewService,Test,560
-1111113,Billing,no billing,0
+1111114,Disconnection,customer has been disconnect and not reconnected in 48 hrs,3000
